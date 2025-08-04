@@ -14,6 +14,13 @@ contract RomanToInteger {
         romanToInt[bytes1('M')] = 1000;
     }
 
+    /**
+    通常情况下，小的数字在大的数字右边，表示相加
+    当小的数字在大的数字左边时，表示相减（如 IV = 4, IX = 9, XL = 40, XC = 90, CD = 400, CM = 900）
+     * @dev 将罗马数字转换为整数
+     * @param romanStr 罗马数字字符串
+     * @return 整数
+     */
     function romanConvertToInt(string memory romanStr) public view returns (uint256) {
         uint256 result = 0;
         bytes  memory romanBytes = bytes(romanStr);
